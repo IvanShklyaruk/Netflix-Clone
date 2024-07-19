@@ -1,12 +1,10 @@
-import NetflixClonePage from "./pages/NetflixClone";
+import NetflixClonePage from "./pages/NetflixClonePage";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <div className="content">
-        <NetflixClonePage />
-      </div>
+      <NetflixClonePage />
     </div>
   );
 }
