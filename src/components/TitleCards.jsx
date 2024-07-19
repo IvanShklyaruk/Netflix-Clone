@@ -42,7 +42,10 @@ const TitleCards = ({ title, category }) => {
         {apiData.map((card, index) => {
           return (
             <Link
-              to={{ pathname: `/player/${card.id}`, state: dataToPass }}
+              to={{
+                pathname: `/Netflix-Clone/player/${card.id}`,
+                state: dataToPass,
+              }}
               className="card"
               key={index}
             >
