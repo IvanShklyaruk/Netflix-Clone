@@ -24,26 +24,37 @@ const Login = () => {
 
   return loading ? (
     <div className="login-spinner">
-      <img src={netflix_spinner} alt="" />
+      <img src={netflix_spinner} alt="Loading..." />
     </div>
   ) : (
     <div className="login">
-      <img src={logo} className="login-logo" alt="" />
+      <img src={logo} className="login-logo" alt="Netflix Logo" />
       <div className="login-form">
         <h1>{signState}</h1>
+        {signState === "Sign In" && (
+          <div className="signin-message">
+            <p>If this is your first visit, please sign up first.</p>
+          </div>
+        )}
         <form>
           {signState === "Sign Up" ? (
-            <input
-              value={name}
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
-              type="text"
-              placeholder="Your name"
-            />
-          ) : (
-            <></>
-          )}
+            <>
+              <div className="warning">
+                <p>
+                  Please do not use your real email and password. A made-up one
+                  will work.
+                </p>
+              </div>
+              <input
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+                type="text"
+                placeholder="Your name"
+              />
+            </>
+          ) : null}
           <input
             value={email}
             onChange={(e) => {
@@ -66,7 +77,7 @@ const Login = () => {
           <div className="form-help">
             <div className="remember">
               <input type="checkbox" />
-              <label htmlFor="">Remember Me</label>
+              <label>Remember Me</label>
             </div>
             <p>Need Help?</p>
           </div>
@@ -85,7 +96,7 @@ const Login = () => {
             </p>
           ) : (
             <p>
-              Already have account?{" "}
+              Already have an account?{" "}
               <span
                 onClick={() => {
                   setSignState("Sign In");
